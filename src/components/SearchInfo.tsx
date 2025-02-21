@@ -1,6 +1,6 @@
 import { GameDataContext } from "@context/GamesDataContext"
 import { useMutation } from "@tanstack/react-query"
-import { useContext, useEffect } from "react"
+import { useContext } from "react"
 import { AiOutlineLoading3Quarters } from "react-icons/ai"
 
 interface Props{
@@ -13,7 +13,7 @@ const SearchInfo = ({data, setDropdownVisible, isLoading}: Props) => {
 
     const {setId} = useContext(GameDataContext)
 
-    const {mutate, data: id} = useMutation({
+    const {mutate} = useMutation({
         mutationFn: (id: string) => setId(id),
         onSettled: () => {
             setDropdownVisible(false)
